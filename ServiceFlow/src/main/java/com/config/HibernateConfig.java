@@ -1,6 +1,9 @@
 package com.config;
 
+import com.model.Customer;
+import com.model.Executive;
 import com.model.Ticket;
+import com.model.User;
 import org.hibernate.SessionFactory;
 
 import org.hibernate.cfg.Configuration;
@@ -31,6 +34,9 @@ public class HibernateConfig {
 
             // Add model classes that we will create
             configuration.addAnnotatedClass(Ticket.class);
+            configuration.addAnnotatedClass(Customer.class);
+            configuration.addAnnotatedClass(Executive.class);
+            configuration.addAnnotatedClass(User.class);
 
             return  configuration.buildSessionFactory();
         }

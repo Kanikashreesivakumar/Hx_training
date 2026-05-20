@@ -28,6 +28,12 @@ public class Ticket {
    @CreationTimestamp
     private Instant createdAt;
 
+   @ManyToOne
+   private Customer customer;
+
+   @ManyToOne
+   private Executive executive;
+
 
 
     public int getId() {
@@ -76,6 +82,22 @@ public class Ticket {
 
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Executive getExecutive() {
+        return executive;
+    }
+
+    public void setExecutive(Executive executive) {
+        this.executive = executive;
     }
 
     @Override
