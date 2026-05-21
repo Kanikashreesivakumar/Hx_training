@@ -1,6 +1,6 @@
 package com.config;
 
-import com.model.User;
+import com.model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -15,14 +15,23 @@ public class HibernateConfig {
          configuration.setProperty("hibernate.connection.username","root");
          configuration.setProperty("hibernate.connection.password","kani@2004");
          configuration.setProperty("hibernate.connection.driver_class","com.mysql.cj.jdbc.Driver");
-         // set the dialect
          configuration.setProperty("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
 
-         // If u want hibernate to generate the DB tables on the fly based on Model classes
+
          configuration.setProperty("hibernate.hbm2ddl.auto", "update");
 
          configuration.addAnnotatedClass(User.class);
-         return configuration.buildSessionFactory();
+         configuration.addAnnotatedClass(Admin.class);
+         configuration.addAnnotatedClass(AssetAllocation.class);
+         configuration.addAnnotatedClass(Asset.class);
+         configuration.addAnnotatedClass(AssetCategory.class);
+         configuration.addAnnotatedClass(Employee.class);
+         configuration.addAnnotatedClass(ServiceRequest.class);
+         configuration.addAnnotatedClass(AuditRequest.class);
+         configuration.addAnnotatedClass(AssetRequest.class);
+
+
+         sessionFactory = configuration.buildSessionFactory();
      }
      return sessionFactory;
 
