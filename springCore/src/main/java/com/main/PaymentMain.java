@@ -3,6 +3,7 @@ package com.main;
 import com.config.AppConfig;
 import com.model.Payment;
 import com.model.UPIPayment;
+import com.service.PaymentService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class PaymentMain {
@@ -15,6 +16,10 @@ public class PaymentMain {
         System.out.println(payment1);
         System.out.println(payment2);
         System.out.println(payment3);
+        PaymentService paymentService= context.getBean(PaymentService.class);
+        System.out.println(paymentService.processPayment(payment1));
+        System.out.println(paymentService.processPayment(payment2));
+        System.out.println(paymentService.processPayment(payment3));
       context.close();
     }
 }
