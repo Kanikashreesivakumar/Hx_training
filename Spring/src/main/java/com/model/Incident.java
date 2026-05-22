@@ -4,34 +4,26 @@ import com.enums.IncidentStatus;
 import com.enums.IncidentType;
 
 public class Incident {
-
     private int id;
-    private int officerId;
     private IncidentType incidentType;
     private String progressDetails;
     private IncidentStatus incidentStatus;
 
-
-    public Incident(int id) {
-        this.id = id;
+    public Incident() {
     }
 
-
-    public Incident(int officerId,
-                    IncidentType incidentType,
-                    String progressDetails,
-                    IncidentStatus incidentStatus) {
-
-        this.officerId = officerId;
+    public Incident(IncidentType incidentType, String progressDetails, IncidentStatus incidentStatus) {
         this.incidentType = incidentType;
         this.progressDetails = progressDetails;
         this.incidentStatus = incidentStatus;
     }
 
-
-    public Incident() {
+    public Incident(int id, IncidentType incidentType, String progressDetails, IncidentStatus incidentStatus) {
+        this.id = id;
+        this.incidentType = incidentType;
+        this.progressDetails = progressDetails;
+        this.incidentStatus = incidentStatus;
     }
-
 
     public int getId() {
         return id;
@@ -41,16 +33,6 @@ public class Incident {
         this.id = id;
     }
 
-
-    public int getOfficerId() {
-        return officerId;
-    }
-
-    public void setOfficerId(int officerId) {
-        this.officerId = officerId;
-    }
-
-
     public IncidentType getIncidentType() {
         return incidentType;
     }
@@ -59,7 +41,6 @@ public class Incident {
         this.incidentType = incidentType;
     }
 
-
     public String getProgressDetails() {
         return progressDetails;
     }
@@ -67,7 +48,6 @@ public class Incident {
     public void setProgressDetails(String progressDetails) {
         this.progressDetails = progressDetails;
     }
-
 
     public IncidentStatus getIncidentStatus() {
         return incidentStatus;
@@ -81,7 +61,6 @@ public class Incident {
     public String toString() {
         return "Incident{" +
                 "id=" + id +
-                ", officerId=" + officerId +
                 ", incidentType=" + incidentType +
                 ", progressDetails='" + progressDetails + '\'' +
                 ", incidentStatus=" + incidentStatus +
